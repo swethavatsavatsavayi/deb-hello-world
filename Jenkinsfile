@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Install necessary packages
-                sh 'yum update'
+                //sh 'yum update'
                 sh 'yum install -y build-essential devscripts debhelper'
 
                 // Build the package
