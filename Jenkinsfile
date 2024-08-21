@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Build the package
-                sh 'apt dpkg-buildpackage -us -uc'
+                sh 'dpkg-buildpackage -us -uc'
             }
         }
     }
