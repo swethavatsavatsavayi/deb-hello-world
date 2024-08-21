@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
         stage('Checkout') {
             steps {
@@ -8,22 +7,10 @@ pipeline {
                 checkout scm
             }
         }
-
         stage('Build') {
             steps {
-                // Install necessary packages
-                //sh 'yum update'
-                sh 'yum install -y build-essential devscripts debhelper'
-
                 // Build the package
-                sh 'dpkg-buildpackage -us -uc'
-            }
-        }
-
-        stage('Archive Artifacts') {
-            steps {
-                // Archive the Debian package
-                archiveArtifacts artifacts: '*.deb', allowEmptyArchive: true
+                sh 'apt dpkg-buildpackage -us -uc'
             }
         }
     }
