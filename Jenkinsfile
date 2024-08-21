@@ -9,11 +9,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-                // Install necessary packages
-                //sh 'yum update'
-                sh 'apt install -y build-essential devscripts debhelper'
                 // Build the package
-                sh 'dpkg-buildpackage -us -uc'
+                sh 'dpkg-buildpackage -b -us -uc'
             }
         }
 
