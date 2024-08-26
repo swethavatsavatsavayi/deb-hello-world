@@ -13,6 +13,16 @@ pipeline {
                 sh 'dpkg-buildpackage -b -us -uc'
             }
         }
+        stage('Archive Aritfact') {
+            steps {
+                //Store artifact
+                sh '''
+                    pwd
+                    cd ..
+                    pwd
+                '''
+            }
+        }
 
     }
 }
