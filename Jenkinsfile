@@ -16,14 +16,10 @@ pipeline {
         stage('Archive Aritfact') {
             steps {
                 //Store artifact
-                sh '''
-                    pwd
-                    cd ..
-                    pwd
-                '''
-                archiveArtifacts artifacts: '*.deb'
+                dir('/var/jenkins_home/workspace'){
+                    archiveArtifacts artifacts: '*.deb'
+                }
             }
         }
-
     }
 }
