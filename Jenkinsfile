@@ -20,6 +20,7 @@ pipeline {
                     pwd
                     cd ..
                     pwd
+                    archiveArtifacts artifacts: '*.deb'
                 '''
             }
         }
